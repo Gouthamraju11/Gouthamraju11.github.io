@@ -1015,90 +1015,139 @@ h1, h2, h3, h4, h5,
 }
 
 
-//PROJECT
-.project{
+// ✅ Success & Error Popup Styles
+.popup-message {
+	display: none;
+	position: fixed;
+	top: 25px;
+	right: 25px;
+	background: #28a745;
+	color: #fff;
+	padding: 14px 25px;
+	border-radius: 10px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	z-index: 9999;
+	font-size: 16px;
+	font-weight: 500;
+	opacity: 0;
+	transform: translateY(-10px);
+	transition: all 0.4s ease;
+  
+	&.error {
+	  background: #dc3545;
+	}
+  
+	&.show {
+	  display: block;
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  
+
+/* --- Project Section Adjustments --- */
+#projects-section .project {
 	width: 100%;
-	height: 350px;
-	margin-bottom: 0;
+	height: 340px;
+	margin-bottom: 25px; /* Reduced row gap */
 	position: relative;
-	z-index: 0;
-	&.img-2{
-		height: 600px;
-		@include media-breakpoint-down(sm){
-			height: 285px;
-		}
-		.text{
-			max-width: 45%;
-			z-index: 1;
-			h3{
-				font-size: 22px;
-				a{
-					color: $white;
-				}
-			}
-			span{
-				color: rgba(255,255,255,.8);
-				text-transform: uppercase;
-				letter-spacing: 2px;
-			}
-			@include media-breakpoint-down(sm){
-				max-width: 100%;
-				opacity: 1;
-				span{
-					color: rgba(255,255,255,.8);
-				}
-			}
-		}
+	overflow: hidden;
+	border: 1.5px solid rgba(255, 255, 255, 0.15);
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+	background-size: cover;
+	background-position: center;
+	transition: all 0.3s ease;
+  
+	&:hover {
+	  transform: translateY(-6px);
+	  border-color: rgba(255, 255, 255, 0.35);
+	  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 	}
-	.overlay{
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		content: '';
-		opacity: 0;
-		background: $primary;
-		z-index: -1;
-		@include transition(.3s);
-		@include media-breakpoint-down(sm){
-			opacity: .2;
-		}
+  
+	.overlay {
+	  position: absolute;
+	  inset: 0;
+	  background: rgba(0, 0, 0, 0.25);
+	  opacity: 0;
+	  border-radius: 12px;
+	  z-index: 1;
+	  transition: all 0.3s ease;
 	}
-	.text{
-		max-width: 80%;
-		z-index: 1;
-		opacity: 0;
-		@include transition(.3s);
-		h3{
-			font-size: 20px;
-			a{
-				color: $white;
-			}
-		}
-		span{
-			color: rgba(255,255,255,.8);
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			font-size: 12px;
-			font-weight: 600;
-		}
-		@include media-breakpoint-down(sm){
-			opacity: 1;
-			span{
-				color: rgba(255,255,255,.8);
-			}
-		}
+  
+	&:hover .overlay {
+	  opacity: 0.9;
 	}
-	&:hover, &:focus{
-		.overlay{
-			opacity: .9;
+  
+	.text {
+	  position: relative;
+	  z-index: 2;
+	  max-width: 80%;
+	  text-align: center;
+	  color: #fff;
+	  opacity: 0;
+	  padding: 1rem;
+	  margin: 0 auto;
+	  transition: all 0.3s ease;
+  
+	  h3 {
+		font-size: 20px;
+		margin-bottom: 0.5rem;
+  
+		a {
+		  color: #fff;
+		  text-decoration: none;
+		  transition: color 0.2s;
+  
+		  &:hover {
+			color: lighten($primary, 20%);
+		  }
 		}
-		.text{
-			opacity: 1;
-		}
+	  }
+  
+	  span {
+		color: rgba(255, 255, 255, 0.8);
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		font-size: 12px;
+		font-weight: 600;
+	  }
+  
+	  p {
+		font-size: 0.9rem;
+		line-height: 1.5;
+		text-align: justify;
+		color: #ffffff;
+	  }
 	}
-}
+  
+	&:hover .text {
+	  opacity: 1;
+	}
+  
+	&.img-2 {
+	  height: 600px;
+  
+	  @include media-breakpoint-down(sm) {
+		height: 285px;
+	  }
+  
+	  .text {
+		max-width: 45%;
+  
+		@include media-breakpoint-down(sm) {
+		  max-width: 100%;
+		  opacity: 1;
+		}
+	  }
+	}
+  
+	@include media-breakpoint-down(sm) {
+	  height: auto;
+	}
+  }
+
+
 
 
 // USEFUL CODE
@@ -1173,24 +1222,27 @@ textarea.form-control {
 }
 
 
+/* --- Global Section Spacing --- */
 .ftco-section {
-	padding: 7em 0;
+	padding: 4em 0; /* Reduced from 7em to tighten vertical spacing */
 	position: relative;
-	@include media-breakpoint-down(sm){
-		padding: 6em 0;
+  
+	@include media-breakpoint-down(sm) {
+	  padding: 3em 0;
 	}
-}
-
-.ftco-no-pt{
+  }
+  
+  .ftco-no-pt {
 	padding-top: 0 !important;
-}
-.ftco-no-pb{
+  }
+  
+  .ftco-no-pb {
 	padding-bottom: 0 !important;
-}
-
-.ftco-bg-dark {
+  }
+  
+  .ftco-bg-dark {
 	background: #3c312e;
-}
+  }
 
 
 
@@ -1600,69 +1652,68 @@ textarea.form-control {
 }
 
 
+/* --- Contact Section --- */
 .contact-section {
-	.contact-info{
-		p{
-			a{
-				color: lighten($black,10%);
-			}
-			span{}
+	margin-top: 0 !important;
+	padding-top: 2rem !important;/* Reduced padding */
+	padding-bottom: 30px !important; /* Add bottom padding for balance */
+  
+	.contact-info {
+	  p {
+		a {
+		  color: lighten($black, 10%);
 		}
+	  }
 	}
-	.box{
-		width: 100%;
-		display: block;
-		@include border-radius(4px);
-		@include media-breakpoint-down(md){
-			margin-bottom: 30px;
+  
+	.box {
+	  width: 100%;
+	  display: block;
+	  @include border-radius(4px);
+  
+	  @include media-breakpoint-down(md) {
+		margin-bottom: 30px;
+	  }
+  
+	  .icon {
+		width: 100px;
+		height: 100px;
+		background: $primary;
+		margin: 0 auto 10px;
+		@include border-radius(50%);
+  
+		span {
+		  color: $white;
+		  font-size: 30px;
 		}
-		.icon{
-			width: 100px;
-			height: 100px;
-			background: $primary;
-			margin: 0 auto;
-			margin-bottom: 10px;
-			@include border-radius(50%);
-			span{
-				color: $white;
-				font-size: 30px;
-			}
-		}
-		h3{
-			font-size: 18px;
-			font-weight: 600;
-		}
+	  }
+  
+	  h3 {
+		font-size: 18px;
+		font-weight: 600;
+	  }
 	}
-	.contact-form{
-		width: 100%;
+  
+	.img {
+	  width: 100%;
+	  background-position: top center;
+  
+	  @include media-breakpoint-down(md) {
+		height: 450px; /* Slightly reduced for better proportion */
+	  }
 	}
-}
-.contact-section {
-	.img{
-		width: 100%;
-		background-position: top center;
-		@include media-breakpoint-down(md){
-			height: 500px;
+  
+	.contact-form {
+	  width: 100%;
+  
+	  .btn-primary {
+		@include media-breakpoint-down(sm) {
+		  display: block;
+		  width: 100%;
 		}
+	  }
 	}
-	.contact-info{
-		p{
-			a{
-				color: $primary;
-			}
-			span{}
-		}
-	}
-	.contact-form{
-		width: 100%;
-		.btn-primary{
-			@include media-breakpoint-down(sm){
-				display: block;
-				width: 100%;
-			}
-		}
-	}
-}
+  }
 .block-9 {
 
 	.form-control {
