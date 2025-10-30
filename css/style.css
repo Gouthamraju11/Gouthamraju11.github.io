@@ -8932,11 +8932,17 @@ h1, h2, h3, h4, h5,
     color: rgba(255, 255, 255, 0.9); }
 
 .project {
-  width: 100%;
-  height: 350px;
-  margin-bottom: 0;
   position: relative;
-  z-index: 0; }
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 350px; /* keeps consistent look */
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto; }
   .project.img-2 {
     height: 600px; }
     @media (max-width: 767.98px) {
