@@ -665,8 +665,7 @@ strong { font-weight: 700; color: var(--text); }
 .projects__grid {
   display: grid; grid-template-columns: 1fr; gap: var(--sp-6);
 }
-@media (min-width: 768px)  { .projects__grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1024px) { .projects__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px) { .projects__grid { grid-template-columns: 1fr 1fr; } }
 
 .project-card {
   position: relative;
@@ -750,9 +749,10 @@ strong { font-weight: 700; color: var(--text); }
   font-size: var(--fs-xs); font-weight: 700;
   border-radius: var(--r-full); letter-spacing: 0.05em; text-transform: uppercase;
 }
-.badge--research { background: rgba(16,185,129,0.12); color: #10b981; border: 1px solid rgba(16,185,129,0.25); }
-.badge--journal   { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.25); }
+.badge--research    { background: rgba(16,185,129,0.12); color: #10b981; border: 1px solid rgba(16,185,129,0.25); }
+.badge--journal     { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.25); }
 .badge--distinction { background: var(--blue-dim); color: var(--blue-light); border: 1px solid rgba(59,130,246,0.25); }
+.badge--arch        { background: rgba(99,102,241,0.12); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.25); }
 
 /* ============================================================
    CERTIFICATIONS
