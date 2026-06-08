@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gouthamraju11.github.io/sitemap.xml
