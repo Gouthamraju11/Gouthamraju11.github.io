@@ -1,78 +1,107 @@
 /* ============================================================
-   ANIMATIONS — scroll reveal + transitions
-   All animations disabled when user prefers reduced motion.
+   ANIMATIONS — keyframes + scroll reveal
    ============================================================ */
 
-/* Scroll-reveal base state — elements start hidden */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+/* ---- Keyframes ---- */
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Triggered by IntersectionObserver in animations.js */
+@keyframes glow-breathe {
+  0%   { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.04); }
+}
+
+@keyframes grid-fade {
+  0%   { opacity: 0.6; }
+  100% { opacity: 1;   }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
+  50%       { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(16,185,129,0); }
+}
+
+@keyframes scroll-bar {
+  0%   { transform: scaleY(0);   opacity: 0; transform-origin: top; }
+  40%  { transform: scaleY(1);   opacity: 1; transform-origin: top; }
+  60%  { transform: scaleY(1);   opacity: 1; transform-origin: bottom; }
+  100% { transform: scaleY(0);   opacity: 0; transform-origin: bottom; }
+}
+
+@keyframes timeline-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(59,130,246,0.15), 0 0 12px rgba(59,130,246,0.2); }
+  50%       { box-shadow: 0 0 0 6px rgba(59,130,246,0.08), 0 0 20px rgba(59,130,246,0.3); }
+}
+
+/* Hero item stagger — triggered on load */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Hero entrance stagger ---- */
+.hero__item {
+  opacity: 0;
+  animation: hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero__item:nth-child(1) { animation-delay: 0.1s; }
+.hero__item:nth-child(2) { animation-delay: 0.22s; }
+.hero__item:nth-child(3) { animation-delay: 0.36s; }
+.hero__item:nth-child(4) { animation-delay: 0.5s; }
+.hero__item:nth-child(5) { animation-delay: 0.64s; }
+
+/* ---- Pulsing elements ---- */
+.hero__pulse   { animation: pulse-dot 2.4s ease-in-out infinite; }
+.timeline__dot { animation: timeline-dot-pulse 3s ease-in-out infinite; }
+
+/* ---- Scroll-reveal base ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Stagger children of a container */
-.reveal-stagger > * {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
-}
-.reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
-.reveal-stagger.is-visible > *:nth-child(1)  { transition-delay: 0ms;  }
-.reveal-stagger.is-visible > *:nth-child(2)  { transition-delay: 80ms; }
-.reveal-stagger.is-visible > *:nth-child(3)  { transition-delay: 160ms;}
-.reveal-stagger.is-visible > *:nth-child(4)  { transition-delay: 240ms;}
-.reveal-stagger.is-visible > *:nth-child(5)  { transition-delay: 320ms;}
-.reveal-stagger.is-visible > *:nth-child(6)  { transition-delay: 400ms;}
-.reveal-stagger.is-visible > *:nth-child(7)  { transition-delay: 480ms;}
-
-/* Delayed reveal for hero content */
-.hero .reveal {
-  transition-delay: 100ms;
-}
-
-/* Nav scroll-shrink animation */
+/* ---- Nav scrolled state ---- */
 .nav-header.is-scrolled {
-  box-shadow: 0 1px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 1px 32px rgba(0,0,0,0.5);
 }
 
-/* Page load fade-in */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0);    }
+/* ---- Card hover lift ---- */
+.project-card,
+.cert-card,
+.edu-card,
+.pub-card,
+.skill-category {
+  will-change: transform;
 }
 
-/* Subtle pulse for accent dots */
-@keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(59,130,246,0.2); }
-  50%       { box-shadow: 0 0 0 6px rgba(59,130,246,0.1); }
+/* ---- Gradient text animation (on hero name) ---- */
+.hero__name-line--gradient {
+  background-size: 300% 300%;
 }
-.timeline__dot { animation: pulse-dot 3s ease-in-out infinite; }
 
 /* ============================================================
-   REDUCED MOTION — respect the user's OS preference
+   REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    animation-duration:       0.01ms !important;
+    animation-iteration-count: 1     !important;
+    transition-duration:      0.01ms !important;
+    scroll-behavior:          auto   !important;
   }
-
-  .reveal,
-  .reveal-stagger > * {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .timeline__dot { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero__item { opacity: 1; animation: none; }
+  .hero__pulse, .timeline__dot { animation: none; }
+  .hero__scroll-bar { animation: none; }
 }

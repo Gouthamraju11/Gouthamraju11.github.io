@@ -1,8 +1,8 @@
 /* ============================================================
-   main.js — navigation, theme toggle, contact form, scroll
+   main.js — theme, nav, count-up, contact form
    ============================================================ */
 
-/* ---------- Theme toggle ---------- */
+/* ---------- Theme ---------- */
 const THEME_KEY = 'portfolio-theme';
 
 function getPreferredTheme() {
@@ -21,21 +21,17 @@ function applyTheme(theme) {
 }
 
 function initTheme() {
-  const theme = getPreferredTheme();
-  applyTheme(theme);
-
+  applyTheme(getPreferredTheme());
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
-
   btn.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     applyTheme(next);
     localStorage.setItem(THEME_KEY, next);
   });
 }
 
-/* ---------- Navigation: hamburger ---------- */
+/* ---------- Nav: hamburger ---------- */
 function initNav() {
   const hamburger = document.getElementById('nav-hamburger');
   const navLinks  = document.getElementById('nav-links');
@@ -48,8 +44,8 @@ function initNav() {
   }
 
   hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-    if (isOpen) {
+    const open = hamburger.getAttribute('aria-expanded') === 'true';
+    if (open) {
       closeMenu();
     } else {
       hamburger.setAttribute('aria-expanded', 'true');
@@ -58,33 +54,21 @@ function initNav() {
     }
   });
 
-  // Close menu when a link is clicked
-  navLinks.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Close menu when clicking outside
+  navLinks.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', closeMenu));
   document.addEventListener('click', e => {
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-      closeMenu();
-    }
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) closeMenu();
   });
-
-  // Close on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeMenu();
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 }
 
-/* ---------- Navigation: scrolled state ---------- */
+/* ---------- Nav: scroll shadow ---------- */
 function initNavScroll() {
   const header = document.getElementById('nav-header');
   if (!header) return;
-
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (ticking) return;
-    window.requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       header.classList.toggle('is-scrolled', window.scrollY > 20);
       ticking = false;
     });
@@ -92,27 +76,60 @@ function initNavScroll() {
   }, { passive: true });
 }
 
-/* ---------- Active section highlighting ---------- */
+/* ---------- Nav: active section highlight ---------- */
 function initActiveNav() {
   const sections = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.nav__link');
-  if (!sections.length || !navLinks.length) return;
+  const links    = document.querySelectorAll('.nav__link');
+  if (!sections.length || !links.length) return;
 
-  const observer = new IntersectionObserver(entries => {
+  const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const id = entry.target.getAttribute('id');
-      navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        link.classList.toggle('is-active', href === `#${id}`);
-      });
+      links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === `#${id}`));
     });
-  }, {
-    rootMargin: '-30% 0px -60% 0px',
-    threshold: 0,
-  });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
 
-  sections.forEach(section => observer.observe(section));
+  sections.forEach(s => obs.observe(s));
+}
+
+/* ---------- Count-up animation ---------- */
+function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+function animateCounter(el) {
+  const target   = parseFloat(el.dataset.count);
+  const suffix   = el.dataset.suffix  ?? '';
+  const decimals = parseInt(el.dataset.decimals ?? '0', 10);
+  const duration = 1800;
+  const start    = performance.now();
+
+  function tick(now) {
+    const elapsed  = Math.min(now - start, duration);
+    const progress = easeOutQuart(elapsed / duration);
+    const value    = target * progress;
+
+    el.textContent = (decimals > 0 ? value.toFixed(decimals) : Math.floor(value).toLocaleString()) + suffix;
+
+    if (elapsed < duration) requestAnimationFrame(tick);
+    else el.textContent = (decimals > 0 ? target.toFixed(decimals) : target.toLocaleString()) + suffix;
+  }
+
+  requestAnimationFrame(tick);
+}
+
+function initCounters() {
+  const counters = document.querySelectorAll('.stat__value[data-count]');
+  if (!counters.length) return;
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      animateCounter(entry.target);
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => obs.observe(el));
 }
 
 /* ---------- Contact form ---------- */
@@ -127,16 +144,12 @@ function initContactForm() {
   };
 
   function setError(field, msg) {
-    const errEl = document.getElementById(field.errId);
-    if (errEl) errEl.textContent = msg;
-    if (msg) field.el.classList.add('is-invalid');
-    else     field.el.classList.remove('is-invalid');
+    const err = document.getElementById(field.errId);
+    if (err) err.textContent = msg;
+    field.el.classList.toggle('is-invalid', !!msg);
   }
 
-  // Clear errors on input
-  Object.values(fields).forEach(field => {
-    field.el.addEventListener('input', () => setError(field, ''));
-  });
+  Object.values(fields).forEach(f => f.el.addEventListener('input', () => setError(f, '')));
 
   form.addEventListener('submit', e => {
     e.preventDefault();
@@ -146,19 +159,11 @@ function initContactForm() {
     const email   = fields.email.el.value.trim();
     const message = fields.message.el.value.trim();
 
-    if (!name) {
-      setError(fields.name, 'Name is required.');
-      valid = false;
+    if (!name)    { setError(fields.name, 'Name is required.');          valid = false; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError(fields.email, 'A valid email address is required.');       valid = false;
     }
-    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRe.test(email)) {
-      setError(fields.email, 'A valid email address is required.');
-      valid = false;
-    }
-    if (!message) {
-      setError(fields.message, 'Message is required.');
-      valid = false;
-    }
+    if (!message) { setError(fields.message, 'Message is required.');    valid = false; }
 
     if (!valid) return;
 
@@ -168,13 +173,11 @@ function initContactForm() {
   });
 }
 
-/* ---------- Smooth scroll polyfill for anchor links ---------- */
+/* ---------- Smooth scroll ---------- */
 function initSmoothScroll() {
-  // CSS scroll-behavior handles modern browsers; this catches any edge cases.
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
-      const id = anchor.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
+      const target = document.getElementById(anchor.getAttribute('href').slice(1));
       if (!target) return;
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -182,12 +185,24 @@ function initSmoothScroll() {
   });
 }
 
-/* ---------- Init ---------- */
+/* ---------- Hide hero scroll indicator on scroll ---------- */
+function initHeroScroll() {
+  const indicator = document.querySelector('.hero__scroll');
+  if (!indicator) return;
+  const onScroll = () => {
+    indicator.style.opacity = window.scrollY > 80 ? '0' : '0.4';
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+/* ---------- Boot ---------- */
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initNav();
   initNavScroll();
   initActiveNav();
+  initCounters();
   initContactForm();
   initSmoothScroll();
+  initHeroScroll();
 });

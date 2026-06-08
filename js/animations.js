@@ -3,33 +3,27 @@
    ============================================================ */
 
 function initScrollReveal() {
-  // Skip animations entirely if user prefers reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
-      el.classList.add('is-visible');
-    });
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
     return;
   }
 
-  const observer = new IntersectionObserver(
+  const obs = new IntersectionObserver(
     entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          // Once visible, stop observing — no need to toggle back
-          observer.unobserve(entry.target);
-        }
+      entries.forEach((entry, i) => {
+        if (!entry.isIntersecting) return;
+        /* Stagger siblings inside the same parent */
+        const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+        const idx = siblings.indexOf(entry.target);
+        entry.target.style.transitionDelay = `${Math.min(idx * 70, 420)}ms`;
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
       });
     },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px',
-    }
+    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
   );
 
-  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 
 document.addEventListener('DOMContentLoaded', initScrollReveal);
