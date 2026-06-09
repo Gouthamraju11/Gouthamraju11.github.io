@@ -406,6 +406,114 @@ strong { font-weight: 700; color: var(--text); }
   max-width: 820px;
 }
 
+/* Hero two-column layout */
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-16);
+}
+
+/* ---- Photo column ---- */
+.hero__photo-col {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  /* Animate in after text */
+  opacity: 0;
+  animation: hero-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+}
+
+.hero__photo-frame {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  /* Animated gradient ring */
+  background: var(--g-accent);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite, hero-in 0.8s cubic-bezier(0.22,1,0.36,1) 0.55s both;
+  padding: 3px;
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) {
+  .hero__photo-frame { width: 320px; height: 320px; }
+}
+
+/* Glow halo behind photo */
+.hero__photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, rgba(139,92,246,0.12) 50%, transparent 70%);
+  z-index: -1;
+  animation: glow-breathe 5s ease-in-out infinite alternate;
+}
+
+.hero__photo-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  /* Dark gap between gradient ring and image */
+  border: 3px solid #020817;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  display: block;
+}
+
+/* Floating credential badges on the photo */
+.hero__photo-badge {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+  padding: 7px 12px;
+  background: rgba(10,22,42,0.9);
+  border: 1px solid var(--border-light);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4), var(--glow-blue-sm);
+}
+.hero__photo-badge span:first-child {
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  color: var(--blue-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.hero__photo-badge span:last-child {
+  font-size: 0.65rem;
+  color: var(--text-3);
+  font-weight: 500;
+}
+.hero__photo-badge--tl { top: 12%; left: -12%; }
+.hero__photo-badge--br { bottom: 10%; right: -12%; }
+
+/* Mobile: stack vertically, photo on top */
+@media (max-width: 767px) {
+  .hero__inner {
+    flex-direction: column;
+    gap: var(--sp-8);
+    text-align: center;
+  }
+  .hero__photo-col { order: -1; }
+  .hero__photo-frame { width: 180px; height: 180px; }
+  .hero__photo-badge { display: none; }
+  .hero__available,
+  .hero__actions,
+  .hero__strip { justify-content: center; }
+  .hero__tagline { margin-inline: auto; }
+}
+
 /* Available badge */
 .hero__available {
   display: inline-flex; align-items: center; gap: var(--sp-2);
