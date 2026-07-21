@@ -33,7 +33,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/animations.css" />
@@ -55,7 +55,7 @@
       { "@type": "EducationalOrganization", "name": "Arizona State University" },
       { "@type": "EducationalOrganization", "name": "Visvesvaraya Technological University" }
     ],
-    "knowsAbout": ["TypeScript","React","Node.js",".NET Core","AWS","Azure","Python","FastAPI","PostgreSQL","LangChain"]
+    "knowsAbout": ["TypeScript","React","Angular","NestJS",".NET Core","AWS","Azure","Python","FastAPI","PostgreSQL","LangChain"]
   }
   </script>
 </head>
@@ -97,10 +97,7 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero" aria-label="Introduction">
-      <!-- Decorative backgrounds -->
-      <div class="hero__grid"  aria-hidden="true"></div>
-      <div class="hero__glow"  aria-hidden="true"></div>
-      <div class="hero__noise" aria-hidden="true"></div>
+      <div class="hero__rule" aria-hidden="true"></div>
 
       <div class="container">
         <div class="hero__inner">
@@ -147,7 +144,7 @@
 
         <!-- Profile photo -->
         <div class="hero__photo-col">
-          <div class="hero__photo-frame">
+          <figure class="hero__photo-frame">
             <div class="hero__photo-inner">
               <img
                 src="./assets/images/profile.jpg"
@@ -157,16 +154,8 @@
                 loading="eager"
               />
             </div>
-            <!-- Floating badge decorations -->
-            <!-- <div class="hero__photo-badge hero__photo-badge--tl" aria-hidden="true">
-              <span>AWS</span>
-              <span>Certified</span>
-            </div>
-            <div class="hero__photo-badge hero__photo-badge--br" aria-hidden="true">
-              <span>GPA</span>
-              <span>4.0</span>
-            </div> -->
-          </div>
+            <figcaption class="hero__photo-caption">Fig. 01 — Goutham Raju</figcaption>
+          </figure>
         </div>
 
         </div><!-- end hero__inner -->
@@ -174,6 +163,7 @@
 
       <!-- Scroll indicator -->
       <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-label">Scroll</span>
         <div class="hero__scroll-bar"></div>
       </div>
     </section>
@@ -182,7 +172,7 @@
     <section class="section" id="about" aria-label="About me">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label">About</span>
+          <span class="section__label"><span class="section__label__num">01</span>About</span>
           <h2 class="section__title">Who I Am</h2>
         </div>
         <div class="about__layout">
@@ -216,7 +206,7 @@
     <section class="section section--alt" id="skills" aria-label="Technical skills">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label">Skills</span>
+          <span class="section__label"><span class="section__label__num">02</span>Skills</span>
           <h2 class="section__title">Tech Stack</h2>
         </div>
         <div class="skills__grid">
@@ -227,34 +217,35 @@
               Languages
             </h3>
             <ul class="skill-tags" role="list">
-              <li class="skill-tag">TypeScript</li><li class="skill-tag">JavaScript</li>
-              <li class="skill-tag">C#</li><li class="skill-tag">Python</li>
-              <li class="skill-tag">Java</li><li class="skill-tag">C++</li>
-              <li class="skill-tag">HTML5</li><li class="skill-tag">CSS3</li>
+              <li class="skill-tag">C#</li><li class="skill-tag">Java</li>
+              <li class="skill-tag">Python</li><li class="skill-tag">TypeScript</li>
+              <li class="skill-tag">JavaScript</li><li class="skill-tag">HTML</li>
+              <li class="skill-tag">CSS</li><li class="skill-tag">SQL</li>
             </ul>
           </div>
 
           <div class="skill-category reveal">
             <h3 class="skill-category__title">
               <span class="skill-category__dot" aria-hidden="true"></span>
-              Frontend
+              Technologies &amp; Frameworks
             </h3>
             <ul class="skill-tags" role="list">
-              <li class="skill-tag">React.js</li><li class="skill-tag">Next.js</li>
-              <li class="skill-tag">Angular</li><li class="skill-tag">Tailwind CSS</li>
-              <li class="skill-tag">Redux</li><li class="skill-tag">NgRx</li>
+              <li class="skill-tag">.NET Core</li><li class="skill-tag">ASP.NET Core Web API</li>
+              <li class="skill-tag">FastAPI</li><li class="skill-tag">NestJS</li>
+              <li class="skill-tag">Angular</li><li class="skill-tag">React.js</li>
+              <li class="skill-tag">Next.js</li>
             </ul>
           </div>
 
           <div class="skill-category reveal">
             <h3 class="skill-category__title">
               <span class="skill-category__dot" aria-hidden="true"></span>
-              Backend &amp; APIs
+              Developer Tools
             </h3>
             <ul class="skill-tags" role="list">
-              <li class="skill-tag">Node.js</li><li class="skill-tag">.NET Core</li>
-              <li class="skill-tag">FastAPI</li><li class="skill-tag">REST APIs</li>
-              <li class="skill-tag">GraphQL</li><li class="skill-tag">Microservices</li>
+              <li class="skill-tag">VS Code</li><li class="skill-tag">Git</li>
+              <li class="skill-tag">GitHub Actions</li><li class="skill-tag">Postman</li>
+              <li class="skill-tag">Docker</li>
             </ul>
           </div>
 
@@ -264,46 +255,35 @@
               Cloud &amp; DevOps
             </h3>
             <ul class="skill-tags" role="list">
-              <li class="skill-tag">Azure</li><li class="skill-tag">AWS Lambda</li>
-              <li class="skill-tag">API Gateway</li><li class="skill-tag">AWS Bedrock</li>
-              <li class="skill-tag">Docker</li><li class="skill-tag">Kubernetes</li>
-              <li class="skill-tag">CI/CD</li>
+              <li class="skill-tag">AWS Lambda</li><li class="skill-tag">API Gateway</li>
+              <li class="skill-tag">DynamoDB</li><li class="skill-tag">S3</li>
+              <li class="skill-tag">SQS</li><li class="skill-tag">AWS Bedrock</li>
+              <li class="skill-tag">SAM</li><li class="skill-tag">CloudFormation</li>
+              <li class="skill-tag">EC2</li><li class="skill-tag">Azure App Services</li>
+              <li class="skill-tag">Azure DevOps</li><li class="skill-tag">Application Insights</li>
             </ul>
           </div>
 
           <div class="skill-category reveal">
             <h3 class="skill-category__title">
               <span class="skill-category__dot" aria-hidden="true"></span>
-              Databases
+              Database &amp; Storage
             </h3>
             <ul class="skill-tags" role="list">
               <li class="skill-tag">PostgreSQL</li><li class="skill-tag">SQL Server</li>
               <li class="skill-tag">DynamoDB</li><li class="skill-tag">MongoDB</li>
-              <li class="skill-tag">Supabase</li>
-            </ul>
-          </div>
-
-          <div class="skill-category reveal">
-            <h3 class="skill-category__title">
-              <span class="skill-category__dot skill-category__dot--purple" aria-hidden="true"></span>
-              AI &amp; ML
-            </h3>
-            <ul class="skill-tags" role="list">
-              <li class="skill-tag skill-tag--purple">LangChain</li>
-              <li class="skill-tag skill-tag--purple">AWS Bedrock</li>
-              <li class="skill-tag skill-tag--purple">TensorFlow Lite</li>
-              <li class="skill-tag skill-tag--purple">OpenCV</li>
-              <li class="skill-tag skill-tag--purple">NLP</li>
-              <li class="skill-tag skill-tag--purple">Computer Vision</li>
+              <li class="skill-tag">Query Optimization</li><li class="skill-tag">Schema Design</li>
             </ul>
           </div>
 
           <div class="skill-category reveal">
             <h3 class="skill-category__title">
               <span class="skill-category__dot skill-category__dot--green" aria-hidden="true"></span>
-              AI Tooling
+              AI / LLM Tools &amp; Agents
             </h3>
             <ul class="skill-tags" role="list">
+              <li class="skill-tag skill-tag--green">LangChain</li>
+              <li class="skill-tag skill-tag--green">AWS Bedrock</li>
               <li class="skill-tag skill-tag--green">Claude Code</li>
               <li class="skill-tag skill-tag--green">GitHub Copilot</li>
               <li class="skill-tag skill-tag--green">Cursor</li>
@@ -318,7 +298,7 @@
     <section class="section" id="experience" aria-label="Work experience">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label">Experience</span>
+          <span class="section__label"><span class="section__label__num">03</span>Experience</span>
           <h2 class="section__title">Where I've Worked</h2>
         </div>
         <div class="timeline">
@@ -331,7 +311,7 @@
             <div class="timeline__body">
               <div class="timeline__header">
                 <div>
-                  <h3 class="timeline__role">Software Engineer</h3>
+                  <h3 class="timeline__role">Software Engineer <span class="timeline__role-note">(Volunteer)</span></h3>
                   <p class="timeline__company">Community Dreams Foundation</p>
                 </div>
                 <span class="timeline__period">
@@ -340,15 +320,16 @@
                 </span>
               </div>
               <ul class="timeline__bullets">
-                <li>Architected STEM-Link Platform end-to-end — API layer, React/Next.js front-end, 76-table PostgreSQL schema</li>
-                <li>Implemented AES-256 encrypted storage, signed URL access controls, NIST-aligned RBAC (Student, Employer, Admin)</li>
-                <li>Built 72-test regression suite covering RBAC, state transitions, and race conditions — all passing</li>
+                <li>Rebuilt a compliance-critical platform from scratch after finding the existing codebase was entirely hardcoded UI with no functional backend; designed a PostgreSQL schema with enforced state transitions and row-level security</li>
+                <li>Implemented RBAC with AES-256 encrypted storage and immutable audit trails, enforcing access boundaries at the database level</li>
+                <li>Established a 26-test automated suite validating data integrity and concurrent state transitions, integrated into a CI/CD pipeline via Docker and GitHub Actions, all passing before feature work began</li>
+                <li>Built structured logging and observability dashboards before the first user onboarded, enabling proactive detection of data integrity issues via state machine trace analysis; onboarded 20+ beta users across three distinct roles</li>
               </ul>
               <div class="stack-row">
-                <span class="stack-tag">React</span><span class="stack-tag">Next.js</span>
-                <span class="stack-tag">TypeScript</span><span class="stack-tag">FastAPI</span>
-                <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Supabase</span>
-                <span class="stack-tag">Docker</span>
+                <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span>
+                <span class="stack-tag">PostgreSQL</span><span class="stack-tag">C#</span>
+                <span class="stack-tag">React</span><span class="stack-tag">Docker</span>
+                <span class="stack-tag">GitHub Actions</span>
               </div>
             </div>
           </article>
@@ -361,22 +342,22 @@
             <div class="timeline__body">
               <div class="timeline__header">
                 <div>
-                  <h3 class="timeline__role">Software Engineer</h3>
+                  <h3 class="timeline__role">Software Development Engineer</h3>
                   <p class="timeline__company">Neudesic <span class="timeline__company-note">(An IBM Company)</span></p>
                 </div>
                 <span class="timeline__period">Feb 2022 – Jan 2024</span>
               </div>
               <ul class="timeline__bullets">
-                <li>Engineered full-stack features across 3 production apps serving 2,000+ daily users — zero data-loss incidents over 2 years</li>
-                <li>Cut API latency by <strong>32%</strong> redesigning N+1 query patterns; reduced frontend errors by <strong>40%</strong> via TypeScript migration</li>
-                <li>Maintained <strong>99.5% uptime</strong> SLA as on-call DRI; improved CI/CD reliability by 25%</li>
-                <li>Built reusable React + Angular component library adopted across all 3 codebases</li>
+                <li>Delivered three connected web and mobile applications for SLB (Schlumberger), a global oilfield services company, replacing manual phone-based booking with a customer portal, employee app, and admin dashboard synced in real time, serving 2,000+ daily users</li>
+                <li>Diagnosed a high-impact SQL performance defect using SQL Server Profiler, identifying N+1 query patterns firing sequential calls per request; rewrote the data access layer with batched JOINs and composite indexes, cutting API latency by <strong>32%</strong></li>
+                <li>Led a TypeScript migration across all three codebases, eliminating a recurring class of null-reference errors caught only in production; reduced runtime errors by <strong>40%</strong></li>
+                <li>Established production monitoring using Azure Application Insights, diagnosing and resolving incidents end-to-end; improved CI/CD pipeline reliability by 25% through root cause analysis of recurring build failures, maintaining <strong>99.5% uptime</strong></li>
               </ul>
               <div class="stack-row">
                 <span class="stack-tag">C#</span><span class="stack-tag">.NET Core</span>
-                <span class="stack-tag">TypeScript</span><span class="stack-tag">Angular</span>
-                <span class="stack-tag">React</span><span class="stack-tag">Azure</span>
-                <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Microservices</span>
+                <span class="stack-tag">Angular</span><span class="stack-tag">TypeScript</span>
+                <span class="stack-tag">SQL Server</span><span class="stack-tag">Azure Application Insights</span>
+                <span class="stack-tag">Azure DevOps</span>
               </div>
             </div>
           </article>
@@ -388,19 +369,20 @@
             <div class="timeline__body">
               <div class="timeline__header">
                 <div>
-                  <h3 class="timeline__role">Software Engineer <span class="timeline__role-note">(Internship)</span></h3>
+                  <h3 class="timeline__role">Software Engineer <span class="timeline__role-note">(Intern)</span></h3>
                   <p class="timeline__company">The Sparks Foundation</p>
                 </div>
                 <span class="timeline__period">Aug 2021 – Oct 2021</span>
               </div>
               <ul class="timeline__bullets">
-                <li>Built serverless backend (Lambda + API Gateway + DynamoDB) sustaining 1,000+ daily transactions at sub-300ms latency</li>
-                <li>Automated IaC deployment via AWS SAM — cut provisioning time by <strong>80%</strong></li>
+                <li>Built a serverless, event-driven backend on AWS Lambda and API Gateway, designing a DynamoDB schema with access-pattern-first modeling and GSIs to sustain 1,000+ daily transactions at sub-300ms p95 latency</li>
+                <li>Automated infrastructure provisioning using AWS SAM and CloudFormation, reducing manual environment setup from 45+ minutes to under 10 minutes, cutting provisioning time by <strong>80%</strong></li>
               </ul>
               <div class="stack-row">
                 <span class="stack-tag">Python</span><span class="stack-tag">AWS Lambda</span>
-                <span class="stack-tag">DynamoDB</span><span class="stack-tag">SAM</span>
-                <span class="stack-tag">Docker</span>
+                <span class="stack-tag">API Gateway</span><span class="stack-tag">DynamoDB</span>
+                <span class="stack-tag">SQS</span><span class="stack-tag">SAM</span>
+                <span class="stack-tag">CloudFormation</span>
               </div>
             </div>
           </article>
@@ -413,7 +395,7 @@
     <section class="section section--alt" id="projects" aria-label="Featured projects">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label">Projects</span>
+          <span class="section__label"><span class="section__label__num">04</span>Projects</span>
           <h2 class="section__title">Selected Work</h2>
         </div>
         <div class="projects__grid">
@@ -423,30 +405,17 @@
               <div class="project-card__number" aria-hidden="true">01</div>
             </div>
             <h3 class="project-card__title">Multi-Agent AI Document Processing Pipeline</h3>
-            <p class="project-card__desc">Distributed multi-agent LLM system processing 500+ documents per batch with 60% reduction in manual processing time. Classify → extract → validate pipeline with modular FastAPI backend and React.js human-in-the-loop review UI.</p>
+            <p class="project-card__desc">Architected a fault-tolerant, event-driven pipeline with three specialized agents (classify → extract → validate) orchestrated via SQS with dead letter queues and exponential backoff retry, ensuring failed messages never block downstream processing. Implemented idempotency checks so redelivered messages under SQS's at-least-once guarantee never process a document twice; DynamoDB for agent state and audit persistence.</p>
             <div class="stack-row">
               <span class="stack-tag">AWS Bedrock</span><span class="stack-tag">LangChain</span>
               <span class="stack-tag">FastAPI</span><span class="stack-tag">Python</span>
-              <span class="stack-tag">React.js</span><span class="stack-tag">Next.js</span>
-            </div>
-          </article>
-
-          <article class="project-card reveal" aria-label="Distributed Telemetry Pipeline">
-            <div class="project-card__top">
-              <div class="project-card__number" aria-hidden="true">02</div>
-            </div>
-            <h3 class="project-card__title">Distributed Telemetry &amp; Performance Analytics Pipeline</h3>
-            <p class="project-card__desc">High-throughput telemetry ingestion system applying anomaly detection across distributed services. Reduced performance incidents by 28% and cut mean investigation time through automated dashboards.</p>
-            <div class="stack-row">
-              <span class="stack-tag">Python</span><span class="stack-tag">Node.js</span>
-              <span class="stack-tag">AWS</span><span class="stack-tag">Docker</span>
-              <span class="stack-tag">Distributed Logging</span>
+              <span class="stack-tag">SQS</span><span class="stack-tag">DynamoDB</span>
             </div>
           </article>
 
           <article class="project-card project-card--featured reveal" aria-label="Object Detector for Visually Impaired">
             <div class="project-card__top">
-              <div class="project-card__number" aria-hidden="true">03</div>
+              <div class="project-card__number" aria-hidden="true">02</div>
             </div>
             <div class="project-card__badges">
               <span class="badge badge--research">Published Research</span>
@@ -463,19 +432,19 @@
 
           <article class="project-card reveal" aria-label="Secure Task Management System">
             <div class="project-card__top">
-              <div class="project-card__number" aria-hidden="true">04</div>
+              <div class="project-card__number" aria-hidden="true">03</div>
             </div>
             <div class="project-card__badges">
               <span class="badge badge--arch">Full-Stack</span>
               <span class="badge badge--arch">Multi-Tenant</span>
             </div>
             <h3 class="project-card__title">Secure Task Management System</h3>
-            <p class="project-card__desc">Production-ready multi-tenant task management platform built on a NestJS + Angular Nx monorepo. Implements NIST-aligned RBAC (Admin / Manager / User), JWT + Passport.js auth, organisation-scoped data isolation, and an interactive Kanban board with drag-and-drop. Shared DTO library eliminates FE/BE duplication; TypeORM-backed with PostgreSQL-ready schema.</p>
+            <p class="project-card__desc">Built a production-ready full-stack application in an Nx monorepo with JWT authentication, database-enforced three-role RBAC, and a shared TypeScript DTO library eliminating contract drift between frontend and backend. Designed a multi-tenant PostgreSQL schema with row-level data isolation and comprehensive automated test coverage, deployed via a Docker-based CI/CD pipeline.</p>
             <div class="stack-row">
               <span class="stack-tag">NestJS</span><span class="stack-tag">Angular</span>
-              <span class="stack-tag">TypeScript</span><span class="stack-tag">TypeORM</span>
-              <span class="stack-tag">PostgreSQL</span><span class="stack-tag">JWT</span>
-              <span class="stack-tag">Nx</span><span class="stack-tag">Docker</span>
+              <span class="stack-tag">TypeScript</span><span class="stack-tag">PostgreSQL</span>
+              <span class="stack-tag">JWT</span><span class="stack-tag">Docker</span>
+              <span class="stack-tag">Nx</span>
             </div>
           </article>
 
@@ -487,7 +456,7 @@
     <section class="section" id="certifications" aria-label="Professional certifications">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label">Certifications</span>
+          <span class="section__label"><span class="section__label__num">05</span>Certifications</span>
           <h2 class="section__title">Credentials</h2>
         </div>
         <div class="certs__grid">
@@ -544,7 +513,7 @@
     <section class="section section--alt" id="education" aria-label="Education">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label">Education</span>
+          <span class="section__label"><span class="section__label__num">06</span>Education</span>
           <h2 class="section__title">Academic Background</h2>
         </div>
         <div class="edu__grid">
@@ -580,7 +549,7 @@
         </div>
 
         <div class="section__header section__header--sub reveal">
-          <span class="section__label">Publication</span>
+          <span class="section__label"><span class="section__label__num">07</span>Publication</span>
           <h2 class="section__title" id="publication">Research</h2>
         </div>
         <article class="pub-card reveal" aria-label="Published research paper">
@@ -599,7 +568,7 @@
     <section class="section" id="contact" aria-label="Contact">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label">Contact</span>
+          <span class="section__label"><span class="section__label__num">08</span>Contact</span>
           <h2 class="section__title">Let's Work Together</h2>
           <p class="section__subtitle">Open to full-time SWE/SDE roles — on-site, hybrid, or remote. Open to relocation.</p>
         </div>
@@ -613,7 +582,7 @@
               </div>
               <div class="resume-card__body">
                 <p class="resume-card__title">Download Resume</p>
-                <p class="resume-card__meta">PDF · Updated Jun 2026</p>
+                <p class="resume-card__meta">PDF · Updated Jul 2026</p>
               </div>
               <svg class="resume-card__arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </a>
