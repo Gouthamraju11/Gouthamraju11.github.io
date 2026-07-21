@@ -414,16 +414,6 @@ strong { font-weight: 700; color: var(--text); }
 }
 .hero__photo-frame:hover .hero__photo { filter: grayscale(0%) contrast(1.02); }
 
-.hero__photo-caption {
-  display: block;
-  margin-top: var(--sp-3);
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.04em;
-  color: var(--text-3);
-  text-align: center;
-}
-
 /* Mobile: stack vertically, photo on top */
 @media (max-width: 767px) {
   .hero__inner {
