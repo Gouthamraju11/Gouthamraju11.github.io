@@ -32,7 +32,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700;750&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/animations.css" />
@@ -65,7 +65,7 @@
   <header class="nav-header" id="nav-header" role="banner">
     <nav class="nav" aria-label="Main navigation">
       <div class="nav__container">
-        <a href="#hero" class="nav__logo" aria-label="Goutham Raju — back to top"><span class="nav__monogram">GR</span><span class="nav__logo-label">Goutham Raju</span></a>
+        <a href="#hero" class="nav__logo" aria-label="Goutham Raju — back to top"><span class="nav__logo-label">goutham<span class="nav__logo-dot">.</span></span></a>
 
         <ul class="nav__links" id="nav-links" role="list">
           <li><a href="#experience" class="nav__link">Experience</a></li>
@@ -102,42 +102,32 @@
         <div class="hero__content">
           <!-- Available badge -->
           <div class="hero__available hero__item" aria-label="Availability status">
-            <span class="hero__pulse" aria-hidden="true"></span>
-            Open to SWE / SDE roles
+
+            Available for SWE / SDE roles
           </div>
 
-          <p class="hero__role hero__item">Software Engineer · Backend &amp; Full Stack</p>
+          <p class="hero__role hero__item">Software engineer / Backend &amp; full stack</p>
           <h1 class="hero__name hero__item">
             <span class="hero__name-line">Goutham Raju</span>
             <span class="hero__name-line hero__name-line--gradient">Kosuru Srinivasa</span>
           </h1>
 
           <p class="hero__tagline hero__item">
-            I build reliable APIs and full-stack applications. At Neudesic (an IBM company), I shipped enterprise software serving <span class="hero__accent">2,000+ daily users</span> and reduced API latency by <span class="hero__accent">32%</span>.
+            I write APIs, untangle SQL queries, and build the interfaces that connect it all. Previously at <span class="hero__accent">Neudesic, an IBM company</span>. M.S. in Information Technology from Arizona State University.
           </p>
 
           <div class="hero__actions hero__item">
             <a href="#projects" class="btn btn--primary">
-              Explore My Projects
+              Selected projects
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
             <a href="./assets/Goutham_Raju_Resume.pdf" class="btn btn--ghost" download="Goutham_Raju_Resume.pdf" aria-label="Download resume PDF">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Resume
             </a>
-            <a href="#contact" class="btn btn--ghost">Contact Me</a>
+            <a href="#contact" class="btn btn--ghost">Get in touch</a>
           </div>
 
-          <!-- Credibility strip -->
-          <div class="hero__strip hero__item" aria-label="Key credentials">
-            <span class="hero__strip-item">2 years at Neudesic</span>
-            <span class="hero__strip-sep" aria-hidden="true">·</span>
-            <span class="hero__strip-item">M.S. · Arizona State University</span>
-            <span class="hero__strip-sep" aria-hidden="true">·</span>
-            <span class="hero__strip-item">AWS Academy Graduate</span>
-            <span class="hero__strip-sep" aria-hidden="true">·</span>
-            <span class="hero__strip-item">Azure Certified</span>
-          </div>
           <div class="hero__profiles"><a href="https://www.linkedin.com/in/gouthamraju11/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/Gouthamraju11" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:gouthamraju224@gmail.com">Email me ↗</a></div>
         </div><!-- end hero__content -->
 
@@ -153,7 +143,7 @@
                 loading="eager"
               />
             </div>
-            <div class="hero__photo-caption"><strong>Backend &amp; full-stack engineer</strong><span>C# / .NET · TypeScript · Python</span></div>
+            <div class="hero__photo-caption"><span>C# / TypeScript / Python</span></div>
           </div>
         </div>
 
@@ -172,29 +162,29 @@
       <div class="container">
         <div class="section__header reveal">
           <span class="section__label"><span class="section__label__num" aria-hidden="true">01</span>About</span>
-          <h2 class="section__title">Engineering at a Glance</h2>
+          <h2 class="section__title">A little context.</h2>
         </div>
         <div class="about__layout">
           <div class="about__text reveal">
-            <p>I'm a software engineer with two years at Neudesic (an IBM company), building REST APIs, business workflows, and connected customer, employee, and admin applications. I hold an M.S. in Information Technology from Arizona State University (GPA 4.0, With Distinction, Dec 2025).</p>
-            <p>My focus is backend and full-stack engineering: API performance, relational data modeling, access control, automated testing, and production troubleshooting. I also build event-driven AI pipelines and have co-authored published embedded-ML research. I'm currently open to full-time SWE/SDE roles on-site, hybrid, or remote.</p>
+            <p>At Neudesic, I worked on three connected applications for customers, employees, and administrators. Some of my most useful work happened below the UI: fixing N+1 queries, tightening TypeScript contracts, and tracing production incidents.</p>
+            <p>Since then, I’ve worked on database-enforced permissions and compliance workflows, and built projects around document processing and tenant isolation. I’m looking for a SWE/SDE role where I can keep building and improving production software.</p>
           </div>
-          <div class="about__stats" aria-label="Key metrics">
+          <div class="about__stats" aria-label="Experience and measured results at Neudesic">
             <div class="stat reveal">
-              <span class="stat__value" data-count="2" data-suffix="+">2+</span>
-              <span class="stat__label">Years Experience</span>
+              <span class="stat__value">2+</span>
+              <span class="stat__label">years of experience</span>
             </div>
             <div class="stat reveal">
-              <span class="stat__value" data-count="2000" data-suffix="+">2,000+</span>
-              <span class="stat__label">Daily Users · Neudesic</span>
+              <span class="stat__value">2,000+</span>
+              <span class="stat__label">daily users</span>
             </div>
             <div class="stat reveal">
               <span class="stat__value">32%</span>
-              <span class="stat__label">Lower API Latency · Neudesic</span>
+              <span class="stat__label">lower API latency</span>
             </div>
             <div class="stat reveal">
               <span class="stat__value">40%</span>
-              <span class="stat__label">Fewer Runtime Errors · Neudesic</span>
+              <span class="stat__label">fewer runtime errors</span>
             </div>
           </div>
         </div>
@@ -206,7 +196,7 @@
       <div class="container">
         <div class="section__header reveal">
           <span class="section__label"><span class="section__label__num" aria-hidden="true">02</span>Experience</span>
-          <h2 class="section__title">Production Experience</h2>
+          <h2 class="section__title">Where I’ve worked.</h2>
         </div>
         <div class="timeline">
 
@@ -302,49 +292,49 @@
       <div class="container">
         <div class="section__header reveal">
           <span class="section__label"><span class="section__label__num" aria-hidden="true">03</span>Projects</span>
-          <h2 class="section__title">Selected Work</h2>
+          <h2 class="section__title">Things I’ve built.</h2>
         </div>
         <div class="projects__grid">
           <article class="project-card reveal" aria-label="Multi-Agent AI Document Processing Pipeline">
             <div class="project-card__top">
               <div class="project-card__number" aria-hidden="true">01</div><span class="project-card__category">Distributed systems / AI</span>
             </div>
-            <h3 class="project-card__title">Multi-Agent AI Document Processing Pipeline</h3>
-            <p class="project-card__desc"><strong>Goal:</strong> Classify, extract, and validate documents with three specialized AI agents.</p><p class="project-card__desc"><strong>Engineering:</strong> SQS orchestration, dead letter queues, and exponential backoff isolate failures. Idempotency checks prevent duplicate processing on message redelivery; DynamoDB persists agent state and audit records.</p>
+            <h3 class="project-card__title">Document processing pipeline</h3>
+            <figure class="project-flow" aria-label="Classify → Extract → Validate"><div class="project-flow__nodes"><span>Classify</span><span class="project-flow__arrow" aria-hidden="true">→</span><span>Extract</span><span class="project-flow__arrow" aria-hidden="true">→</span><span>Validate</span></div><figcaption>SQS orchestration · DynamoDB state · retries &amp; dead letter queues</figcaption></figure>
+            <p class="project-card__desc">Three agents classify documents, extract fields, and validate the results. The important part is how the pipeline behaves when a step fails.</p>
+            <p class="project-card__desc">SQS coordinates the work. Dead letter queues and backoff keep failed messages from blocking processing. Idempotency checks handle redelivery, while DynamoDB stores agent state and audit records.</p>
             <div class="stack-row">
               <span class="stack-tag">AWS Bedrock</span><span class="stack-tag">LangChain</span>
               <span class="stack-tag">FastAPI</span><span class="stack-tag">Python</span>
               <span class="stack-tag">SQS</span><span class="stack-tag">DynamoDB</span>
             </div>
+          <a class="project-source" href="https://github.com/Gouthamraju11/MultiAgent-AI-DocPipeline" target="_blank" rel="noopener noreferrer">Read the source <span aria-hidden="true">↗</span><span class="sr-only"> for Document processing pipeline</span></a>
           </article>
 
           <article class="project-card reveal" aria-label="Secure Task Management System">
             <div class="project-card__top">
               <div class="project-card__number" aria-hidden="true">02</div><span class="project-card__category">Full-stack / Security</span>
             </div>
-            <div class="project-card__badges">
-              <span class="badge badge--arch">Full-Stack</span>
-              <span class="badge badge--arch">Multi-Tenant</span>
-            </div>
-            <h3 class="project-card__title">Secure Task Management System</h3>
-            <p class="project-card__desc"><strong>Goal:</strong> Manage tasks with tenant isolation and three-role access control.</p><p class="project-card__desc"><strong>Engineering:</strong> An Angular and NestJS Nx monorepo shares TypeScript DTOs to keep API contracts aligned. PostgreSQL enforces row-level isolation; JWT authentication, automated tests, and Docker-based CI/CD support secure delivery.</p>
+            <h3 class="project-card__title">Multi-tenant task manager</h3>
+            <figure class="project-flow" aria-label="Angular → NestJS → PostgreSQL"><div class="project-flow__nodes"><span>Angular</span><span class="project-flow__arrow" aria-hidden="true">→</span><span>NestJS</span><span class="project-flow__arrow" aria-hidden="true">→</span><span>PostgreSQL</span></div><figcaption>Shared DTOs · JWT authentication · database-enforced isolation</figcaption></figure>
+            <p class="project-card__desc">A task manager with three-role access control and tenant isolation enforced in the database.</p>
+            <p class="project-card__desc">Angular and NestJS share TypeScript DTOs in an Nx monorepo. PostgreSQL row-level isolation keeps tenant data separate; JWT authentication, automated tests, and a Docker-based CI/CD pipeline support delivery.</p>
             <div class="stack-row">
               <span class="stack-tag">NestJS</span><span class="stack-tag">Angular</span>
               <span class="stack-tag">TypeScript</span><span class="stack-tag">PostgreSQL</span>
               <span class="stack-tag">JWT</span><span class="stack-tag">Docker</span>
               <span class="stack-tag">Nx</span>
             </div>
+          <a class="project-source" href="https://github.com/Gouthamraju11/Secure-Task-Management-System" target="_blank" rel="noopener noreferrer">Read the source <span aria-hidden="true">↗</span><span class="sr-only"> for Multi-tenant task manager</span></a>
           </article>
 
           <article class="project-card project-card--featured reveal" aria-label="Object Detector for Visually Impaired">
             <div class="project-card__top">
               <div class="project-card__number" aria-hidden="true">03</div><span class="project-card__category">Embedded ML / Research</span>
             </div>
-            <div class="project-card__badges">
-              <span class="badge badge--research">Published Research</span>
-            </div>
-            <h3 class="project-card__title">Object Detector &amp; Reader for the Visually Impaired</h3>
-            <p class="project-card__desc"><strong>Goal:</strong> Detect objects and read text on a Raspberry Pi 4 for people with visual impairments.</p><p class="project-card__desc"><strong>Result:</strong> Combined YOLOv3 and Tesseract OCR, achieving <strong>15+ FPS</strong> through TensorFlow Lite quantization. Co-authored research published in IRJMETS in 2022.</p>
+            <h3 class="project-card__title">Object detection on a Raspberry Pi</h3>
+            <p class="project-card__desc">An object detector and text reader running on a Raspberry Pi 4, built for people with visual impairments.</p>
+            <p class="project-card__desc">YOLOv3 handles detection and Tesseract handles OCR. TensorFlow Lite quantization brought performance to <strong>15+ FPS</strong>. I co-authored the research published in IRJMETS in 2022.</p>
             <div class="stack-row">
               <span class="stack-tag">Python</span><span class="stack-tag">TensorFlow Lite</span>
               <span class="stack-tag">YOLOv3</span><span class="stack-tag">OpenCV</span>
@@ -360,7 +350,7 @@
       <div class="container">
         <div class="section__header reveal">
           <span class="section__label"><span class="section__label__num" aria-hidden="true">04</span>Skills</span>
-          <h2 class="section__title">Technical Skills</h2>
+          <h2 class="section__title">Tools I work with.</h2>
         </div>
         <div class="skills__grid">
 
@@ -452,7 +442,7 @@
       <div class="container">
         <div class="section__header reveal">
           <span class="section__label"><span class="section__label__num" aria-hidden="true">05</span>Education</span>
-          <h2 class="section__title">Academic Background</h2>
+          <h2 class="section__title">Education.</h2>
         </div>
         <div class="edu__grid">
 
@@ -488,7 +478,7 @@
 
         <div class="section__header section__header--sub reveal">
           <span class="section__label"><span class="section__label__num" aria-hidden="true">06</span>Publication</span>
-          <h2 class="section__title" id="publication">Research</h2>
+          <h2 class="section__title" id="publication">Research.</h2>
         </div>
         <article class="pub-card reveal" aria-label="Published research paper">
           <div class="pub-card__badges">
@@ -506,7 +496,7 @@
       <div class="container">
         <div class="section__header reveal">
           <span class="section__label"><span class="section__label__num" aria-hidden="true">07</span>Certifications</span>
-          <h2 class="section__title">Credentials</h2>
+          <h2 class="section__title">Credentials.</h2>
         </div>
         <div class="certs__grid">
 
@@ -563,8 +553,8 @@
       <div class="container">
         <div class="section__header reveal">
           <span class="section__label"><span class="section__label__num" aria-hidden="true">08</span>Contact</span>
-          <h2 class="section__title">Let's Work Together</h2>
-          <p class="section__subtitle">Open to full-time SWE/SDE roles — on-site, hybrid, or remote. Open to relocation.</p>
+          <h2 class="section__title">Have a role in mind?</h2>
+          <p class="section__subtitle">I’m open to full-time SWE/SDE roles and relocation. Email is the easiest way to reach me.</p>
         </div>
         <div class="contact__layout">
 
@@ -640,7 +630,7 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__inner">
-        <p class="footer__copy">© 2026 Goutham Raju Kosuru Srinivasa</p>
+        <p class="footer__copy">© 2026 Goutham Raju Kosuru Srinivasa</p><a class="footer__source" href="https://github.com/Gouthamraju11/Gouthamraju11.github.io" target="_blank" rel="noopener noreferrer">Site source ↗</a>
         <nav class="footer__nav" aria-label="Footer links">
           <a href="https://linkedin.com/in/gouthamraju11" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/Gouthamraju11"     class="footer__link" target="_blank" rel="noopener noreferrer">GitHub</a>

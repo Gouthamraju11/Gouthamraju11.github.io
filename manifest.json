@@ -4,8 +4,8 @@
   "description": "Full-Stack Software Engineer Portfolio",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0b1120",
-  "theme_color": "#0b1120",
+  "background_color": "#111313",
+  "theme_color": "#111313",
   "icons": [
     {
       "src": "./assets/icons/favicon.svg",
