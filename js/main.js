@@ -6,8 +6,10 @@
 const THEME_KEY = 'portfolio-theme';
 
 function getPreferredTheme() {
-  const saved = localStorage.getItem(THEME_KEY);
-  if (saved) return saved;
+  try {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved === 'light' || saved === 'dark') return saved;
+  } catch { /* Storage may be unavailable in private browsing. */ }
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 }
 
@@ -27,7 +29,7 @@ function initTheme() {
   btn.addEventListener('click', () => {
     const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     applyTheme(next);
-    localStorage.setItem(THEME_KEY, next);
+    try { localStorage.setItem(THEME_KEY, next); } catch { /* Theme still works without persistence. */ }
   });
 }
 
@@ -119,7 +121,7 @@ function animateCounter(el) {
 
 function initCounters() {
   const counters = document.querySelectorAll('.stat__value[data-count]');
-  if (!counters.length) return;
+  if (!counters.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -147,6 +149,7 @@ function initContactForm() {
     const err = document.getElementById(field.errId);
     if (err) err.textContent = msg;
     field.el.classList.toggle('is-invalid', !!msg);
+    field.el.setAttribute('aria-invalid', String(!!msg));
   }
 
   Object.values(fields).forEach(f => f.el.addEventListener('input', () => setError(f, '')));
@@ -165,7 +168,10 @@ function initContactForm() {
     }
     if (!message) { setError(fields.message, 'Message is required.');    valid = false; }
 
-    if (!valid) return;
+    if (!valid) {
+      form.querySelector('.is-invalid')?.focus();
+      return;
+    }
 
     const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
     const body    = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
@@ -180,7 +186,7 @@ function initSmoothScroll() {
       const target = document.getElementById(anchor.getAttribute('href').slice(1));
       if (!target) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     });
   });
 }

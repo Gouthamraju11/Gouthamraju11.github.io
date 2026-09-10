@@ -984,3 +984,42 @@ strong { font-weight: 700; color: var(--text); }
   .hero__name-line--gradient { color: #000; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.72em; color: #666; }
 }
+
+/* Recruiter overview: put role, evidence, and next steps in the first screen. */
+.hero { min-height: auto; padding-block: 7.5rem 4rem; }
+.hero__inner { gap: 3rem; }
+.hero__content { min-width: 0; }
+.hero__role { font-size: 1rem; color: var(--accent-2); font-weight: 600; }
+.hero__name { font-size: clamp(2.5rem, 4.5vw, 4.25rem); line-height: 1.1; }
+.hero__tagline { max-width: 42rem; font-size: 1.125rem; }
+.hero__profiles { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: .875rem; }
+.hero__profiles a { color: var(--text-2); text-decoration: underline; text-underline-offset: 5px; }
+.hero__profiles a:hover { color: var(--accent-2); }
+.hero__scroll { display: none; }
+:root { --fs-xs: .8125rem; --text-3: #aaa18f; }
+[data-theme="light"] { --text-3: #6d6555; }
+@media (max-width: 767px) {
+  .hero { padding-block: 6rem 3rem; }
+  .hero__inner { text-align: left; align-items: stretch; }
+  .hero__photo-col { order: 0; justify-content: flex-start; }
+  .hero__photo-frame { width: 150px; }
+  .hero__available, .hero__actions, .hero__strip { justify-content: flex-start; }
+  .hero__tagline { margin-inline: 0; }
+  .hero__name { font-size: clamp(2rem, 8vw, 3.25rem); }
+}
+
+.section { padding-block: 4rem; }
+.hero__name-line { overflow-wrap: anywhere; }
+.contact__link { overflow-wrap: anywhere; min-width: 0; }
+@media (min-width: 900px) {
+  .project-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); column-gap: 3rem; }
+  .project-card__top, .project-card__badges, .project-card__title { grid-column: 1; }
+  .project-card__desc, .project-card .stack-row { grid-column: 2; }
+  .project-card__desc:first-of-type { grid-row: 1 / span 2; }
+}
+@media print {
+  .hero { padding-block: 1rem; }
+  .hero__photo-col { display: none; }
+  .reveal, .hero__item { opacity: 1 !important; transform: none !important; }
+  .section { padding-block: 1rem; }
+}

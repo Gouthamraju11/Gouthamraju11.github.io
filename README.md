@@ -1,66 +1,22 @@
-# Goutham Raju Kosuru Srinivasa — Portfolio
+# Goutham Raju — Software Engineering Portfolio
 
-Personal portfolio website for a Full-Stack Software Engineer targeting roles at top-tier tech companies.
+A static, responsive SWE/SDE portfolio built with HTML, CSS, and JavaScript. The root files remain compatible with GitHub Pages; no framework or package installation is required.
 
-**Live site:** https://gouthamraju11.github.io
+## Local preview
 
-## Tech stack
+Run `python3 -m http.server 8765` and visit `http://localhost:8765`.
 
-- HTML5 (semantic), CSS3 (custom properties, no frameworks), Vanilla JS (ES6+)
-- Google Fonts (Inter)
-- No build step — open `index.html` directly or push to GitHub Pages
+## Validate and prepare a Sites preview
 
-## Local development
+Run `python3 scripts/build_static.py` (Python 3 and Node.js required). This checks local asset paths, section anchors, unique IDs, and JavaScript syntax, then stages public files in `dist/`. `.openai/hosting.json` associates the private Sites preview with this checkout. GitHub Pages continues to use the root files.
 
-```bash
-# Option 1 — just open the file
-open index.html
+## Content
 
-# Option 2 — VS Code Live Server (recommended)
-# Install the "Live Server" extension, right-click index.html → "Open with Live Server"
+- `index.html`: role positioning, professional experience, projects, skills, education, credentials, and contact details.
+- `assets/Goutham_Raju_Resume.pdf`: supplied resume, linked from navigation, introduction, and contact section.
+- `css/style.css`: responsive layout, dark/light themes, and print styles.
+- `js/main.js`: theme preference, mobile navigation, and email composition form.
 
-# Option 3 — Python
-python3 -m http.server 8080
-# then visit http://localhost:8080
-```
+The contact form opens the visitor's email application; it does not send or store messages. Direct email and professional profile links are also available.
 
-## Deploy to GitHub Pages
-
-1. Push to the `master` (or `main`) branch.
-2. Go to **Settings → Pages** and set the source to `/ (root)` on your branch.
-3. GitHub Pages will serve `index.html` automatically.
-4. The `.nojekyll` file ensures GitHub Pages skips Jekyll processing.
-
-## File structure
-
-```
-├── index.html          Main page
-├── 404.html            Friendly 404 with redirect
-├── robots.txt
-├── sitemap.xml
-├── manifest.json       PWA basics
-├── .nojekyll           Disables Jekyll on GitHub Pages
-├── assets/
-│   ├── icons/
-│   │   └── favicon.svg
-│   └── images/
-│       └── og-image.png   (generate and add — 1200×630px recommended)
-├── css/
-│   ├── style.css       Full design system + all sections
-│   └── animations.css  Scroll-reveal, transitions
-└── js/
-    ├── main.js         Nav, theme toggle, contact form
-    └── animations.js   IntersectionObserver scroll-reveal
-```
-
-## Placeholder links to update
-
-| Item | Location | Action |
-|------|----------|--------|
-| Project GitHub links | `index.html` — project cards | Replace `https://github.com/Gouthamraju11` with direct repo URLs |
-| IRJMETS publication link | Project 3 card | Add the actual publication URL |
-| OG image | `assets/images/og-image.png` | Generate a 1200×630px preview image |
-
-## License
-
-MIT
+Experience dates and accomplishments were aligned to the supplied resume in September 2026. Existing education and credential details not listed in that resume were retained. Project source links should be added only when the matching repositories are verified; the GitHub profile link is available in the introduction and footer. Existing social image metadata has been retained, but its referenced `assets/images/og-image.png` was not present in the original checkout.
