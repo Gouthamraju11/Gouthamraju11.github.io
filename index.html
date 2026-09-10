@@ -32,7 +32,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700;750&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/animations.css" />
@@ -65,7 +65,7 @@
   <header class="nav-header" id="nav-header" role="banner">
     <nav class="nav" aria-label="Main navigation">
       <div class="nav__container">
-        <a href="#hero" class="nav__logo" aria-label="Goutham Raju — back to top">GR</a>
+        <a href="#hero" class="nav__logo" aria-label="Goutham Raju — back to top"><span class="nav__monogram">GR</span><span class="nav__logo-label">Goutham Raju</span></a>
 
         <ul class="nav__links" id="nav-links" role="list">
           <li><a href="#experience" class="nav__link">Experience</a></li>
@@ -153,6 +153,7 @@
                 loading="eager"
               />
             </div>
+            <div class="hero__photo-caption"><strong>Backend &amp; full-stack engineer</strong><span>C# / .NET · TypeScript · Python</span></div>
           </div>
         </div>
 
@@ -167,10 +168,10 @@
     </section>
 
     <!-- ===== ABOUT ===== -->
-    <section class="section" id="about" aria-label="About me">
+    <section class="section section--alt" id="about" aria-label="About me">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label"><span class="section__label__num"></span>About</span>
+          <span class="section__label"><span class="section__label__num" aria-hidden="true">01</span>About</span>
           <h2 class="section__title">Engineering at a Glance</h2>
         </div>
         <div class="about__layout">
@@ -204,7 +205,7 @@
     <section class="section" id="experience" aria-label="Work experience">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label"><span class="section__label__num"></span>Experience</span>
+          <span class="section__label"><span class="section__label__num" aria-hidden="true">02</span>Experience</span>
           <h2 class="section__title">Production Experience</h2>
         </div>
         <div class="timeline">
@@ -300,13 +301,13 @@
     <section class="section section--alt" id="projects" aria-label="Featured projects">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label"><span class="section__label__num"></span>Projects</span>
+          <span class="section__label"><span class="section__label__num" aria-hidden="true">03</span>Projects</span>
           <h2 class="section__title">Selected Work</h2>
         </div>
         <div class="projects__grid">
           <article class="project-card reveal" aria-label="Multi-Agent AI Document Processing Pipeline">
             <div class="project-card__top">
-              <div class="project-card__number" aria-hidden="true">01</div>
+              <div class="project-card__number" aria-hidden="true">01</div><span class="project-card__category">Distributed systems / AI</span>
             </div>
             <h3 class="project-card__title">Multi-Agent AI Document Processing Pipeline</h3>
             <p class="project-card__desc"><strong>Goal:</strong> Classify, extract, and validate documents with three specialized AI agents.</p><p class="project-card__desc"><strong>Engineering:</strong> SQS orchestration, dead letter queues, and exponential backoff isolate failures. Idempotency checks prevent duplicate processing on message redelivery; DynamoDB persists agent state and audit records.</p>
@@ -319,7 +320,7 @@
 
           <article class="project-card reveal" aria-label="Secure Task Management System">
             <div class="project-card__top">
-              <div class="project-card__number" aria-hidden="true">02</div>
+              <div class="project-card__number" aria-hidden="true">02</div><span class="project-card__category">Full-stack / Security</span>
             </div>
             <div class="project-card__badges">
               <span class="badge badge--arch">Full-Stack</span>
@@ -337,7 +338,7 @@
 
           <article class="project-card project-card--featured reveal" aria-label="Object Detector for Visually Impaired">
             <div class="project-card__top">
-              <div class="project-card__number" aria-hidden="true">03</div>
+              <div class="project-card__number" aria-hidden="true">03</div><span class="project-card__category">Embedded ML / Research</span>
             </div>
             <div class="project-card__badges">
               <span class="badge badge--research">Published Research</span>
@@ -358,7 +359,7 @@
     <section class="section section--alt" id="skills" aria-label="Technical skills">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label"><span class="section__label__num"></span>Skills</span>
+          <span class="section__label"><span class="section__label__num" aria-hidden="true">04</span>Skills</span>
           <h2 class="section__title">Technical Skills</h2>
         </div>
         <div class="skills__grid">
@@ -450,7 +451,7 @@
     <section class="section section--alt" id="education" aria-label="Education">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label"><span class="section__label__num"></span>Education</span>
+          <span class="section__label"><span class="section__label__num" aria-hidden="true">05</span>Education</span>
           <h2 class="section__title">Academic Background</h2>
         </div>
         <div class="edu__grid">
@@ -486,7 +487,7 @@
         </div>
 
         <div class="section__header section__header--sub reveal">
-          <span class="section__label"><span class="section__label__num"></span>Publication</span>
+          <span class="section__label"><span class="section__label__num" aria-hidden="true">06</span>Publication</span>
           <h2 class="section__title" id="publication">Research</h2>
         </div>
         <article class="pub-card reveal" aria-label="Published research paper">
@@ -504,7 +505,7 @@
     <section class="section" id="certifications" aria-label="Professional certifications">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label"><span class="section__label__num"></span>Certifications</span>
+          <span class="section__label"><span class="section__label__num" aria-hidden="true">07</span>Certifications</span>
           <h2 class="section__title">Credentials</h2>
         </div>
         <div class="certs__grid">
@@ -561,7 +562,7 @@
     <section class="section" id="contact" aria-label="Contact">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__label"><span class="section__label__num"></span>Contact</span>
+          <span class="section__label"><span class="section__label__num" aria-hidden="true">08</span>Contact</span>
           <h2 class="section__title">Let's Work Together</h2>
           <p class="section__subtitle">Open to full-time SWE/SDE roles — on-site, hybrid, or remote. Open to relocation.</p>
         </div>
